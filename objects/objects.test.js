@@ -1,4 +1,4 @@
-import { makePet } from './objects.js';
+import { makePet, formatWork } from './objects.js';
 
 const test = QUnit.test;
 
@@ -14,4 +14,20 @@ test('working pet factory function', (expect) => {
         toys: ['feather chaser', 'laser pointer', 'ball of yarn']
     });
 
+});
+
+test('format book object', (expect) => {
+    const originalBook = {
+        author: {
+            last: 'wells',
+            first: 'h.g.'
+        },
+        book: {
+            title: 'war of the worlds',
+            genre: 'scifi',
+            words: 312000
+        }
+    };
+
+    expect.deepEqual(formatWork(originalBook), { work: 'war of the worlds', writer: 'h.g. wells' });
 });

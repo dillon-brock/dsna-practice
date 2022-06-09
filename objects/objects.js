@@ -15,3 +15,17 @@ export function formatWork(book) {
     };
     return formattedWork;
 }
+
+export function expandWork(bookObj) {
+    const [first, last] = bookObj.writer.split(' ');
+    let expandedWork = {
+        author: {
+            last,
+            first
+        },
+        book: {
+            title: bookObj.work,
+        }
+    };
+    return expandedWork;
+}

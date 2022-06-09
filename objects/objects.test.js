@@ -1,4 +1,4 @@
-import { makePet, formatWork } from './objects.js';
+import { makePet, formatWork, expandWork } from './objects.js';
 
 const test = QUnit.test;
 
@@ -30,4 +30,18 @@ test('format book object', (expect) => {
     };
 
     expect.deepEqual(formatWork(originalBook), { work: 'war of the worlds', writer: 'h.g. wells' });
+});
+
+test('expand book object', (expect) => {
+    
+    expect.deepEqual(expandWork({ work: 'war of the worlds', writer: 'h.g. wells' }), {
+        author: {
+            last: 'wells',
+            first: 'h.g.'
+        },
+        book: {
+            title: 'war of the worlds'
+        }
+    });
+
 });
